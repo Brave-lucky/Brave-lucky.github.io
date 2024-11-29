@@ -1,12 +1,74 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的网站</title>
+    <title>色彩提取器</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>欢迎来到我的网站！</h1>
-    <p>这是一个使用 GitHub Pages 托管的网站。</p>
+    <div class="container">
+        <!-- 左侧历史颜色面板 -->
+        <aside class="history-colors-panel">
+            <h2>历史颜色</h2>
+            <div class="history-colors-list" id="historyColorsList">
+                <!-- 历史颜色将通过 JS 动态添加 -->
+            </div>
+        </aside>
+
+        <!-- 中间主要区域 -->
+        <main class="main-content">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-hint">
+                    <svg class="upload-icon" width="50" height="50" viewBox="0 0 24 24">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                    <p>点击或拖拽图片至此处</p>
+                </div>
+                <input type="file" id="fileInput" accept="image/*" hidden>
+            </div>
+            <div class="image-container">
+                <canvas id="imageCanvas" class="image-canvas" hidden></canvas>
+                <div class="image-toolbar" id="imageToolbar" hidden>
+                    <button class="tool-btn" id="newImageBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                        新图片
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- 右侧颜色信息面板 -->
+        <aside class="color-info-panel">
+            <h2>颜色信息</h2>
+            <div class="color-preview" id="colorPreview"></div>
+            <div class="color-values">
+                <div class="color-value-item">
+                    <label>HEX</label>
+                    <div class="value-container">
+                        <input type="text" id="hexValue" readonly>
+                        <button class="copy-btn" data-value="hex">复制</button>
+                    </div>
+                </div>
+                <div class="color-value-item">
+                    <label>RGB</label>
+                    <div class="value-container">
+                        <input type="text" id="rgbValue" readonly>
+                        <button class="copy-btn" data-value="rgb">复制</button>
+                    </div>
+                </div>
+                <div class="color-value-item">
+                    <label>HSL</label>
+                    <div class="value-container">
+                        <input type="text" id="hslValue" readonly>
+                        <button class="copy-btn" data-value="hsl">复制</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <script src="script.js"></script>
 </body>
-</html>
+</html> 
